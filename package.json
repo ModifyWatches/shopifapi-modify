@@ -1,19 +1,19 @@
 {
-  "name": "shopifapi",
-  "version": "0.1.6",
-  "description": "a thin wrapper for the shopify api",
+  "name": "shopifapi-modify",
+  "version": "0.1.8",
+  "description": "a thin wrapper for the shopify api, forked from shopifapi",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mmaelzer/shopifapi"
+    "url": "https://github.com/ModifyWatches/shopifapi-modify"
   },
   "keywords": [
     "shopify"
   ],
-  "author": "Mike Maelzer <mmaelzer@gmail.com>",
+  "author": "Justin Hernandez <justin@modifywatches.com>",
   "license": "MIT",
   "dependencies": {
     "burst-queue": "~0.1.2",

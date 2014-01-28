@@ -1,6 +1,6 @@
 shopifapi
 =========
-  
+
 A thin wrapper around the [Shopify API](http://api.shopify.com/) for node.js. Shopifapi currently only supports basic authentication connections to the Shopify API.
 
 Note that shopifapi implements a [burst-queue](https://github.com/mmaelzer/burst-queue) to prevent hitting the [Shopify API call limit](http://wiki.shopify.com/Learning_to_Respect_the_API_calls_limit). This means that calls on a shopifapi object may call back immediately or may call back in many minutes, depending on the frequency of Shopify API calls.
@@ -8,7 +8,7 @@ Note that shopifapi implements a [burst-queue](https://github.com/mmaelzer/burst
 Install
 -------
 
-    npm install shopifapi
+    npm install shopifapi-modify
 
 ---------------------------------------------
 
@@ -38,23 +38,23 @@ shopify.getBaseObj('products', 'collections_id=12345', function(products) {
 
 Options
 -------
-**auth**  
-The `auth` object takes two items:  
-* username: A shopify dev key  
-* password: A shopify dev password  
+**auth**
+The `auth` object takes two items:
+* username: A shopify dev key
+* password: A shopify dev password
 
-**url**  
+**url**
 This is the `url` of the shopify store to connect to.
-  
-**verbose**  
+
+**verbose**
 Default: `false`. Set this to `true` if you want to watch console.log messages fly by.
-  
+
 --------------------------------------------
 
 Methods
 -------
-**getBaseObj(objectName, args, callback)**  
-Used for getting all objects with the given arguments. If `null` is passed for the `args` parameter, all instances of the specified object type will be returned.  
+**getBaseObj(objectName, args, callback)**
+Used for getting all objects with the given arguments. If `null` is passed for the `args` parameter, all instances of the specified object type will be returned.
 ```javascript
 shopifapi.getBaseObj('custom_collections', null, function(collections) {
 	console.log("Here's a list of all custom_collections!");
@@ -64,36 +64,36 @@ shopifapi.getBaseObj('products', 'custom_collection=54321', function(products) {
 	console.log("Here's all the products from collection 54321!");
 	console.log(products);
 });
-```  
+```
 
-**getBaseObjById(objectName, id, callback)**  
-Used for getting an object with an id.  
+**getBaseObjById(objectName, id, callback)**
+Used for getting an object with an id.
 ```javascript
 shopifapi.getBaseObjById('products', 12345, function(product) {
   console.log("Here's product 12345!");
   console.log(product);
 });
-```  
-  
-**getSubObj(objectName, subObjectName, id, callback)**  
-Used for getting subobjects of a base object. For example, variants of products are subobjects as are provinces of countries. `id` is the id of the base object.  
+```
+
+**getSubObj(objectName, subObjectName, id, callback)**
+Used for getting subobjects of a base object. For example, variants of products are subobjects as are provinces of countries. `id` is the id of the base object.
 ```javascript
 shopifapi.getSubObj('products', 'variants', 12345, function(variants) {
 	console.log("Here's all the variants for product 12345!");
 	console.log(variants);
 });
 
-```  
-  
-**put(objectName, id, data, callback)**  
+```
+
+**put(objectName, id, data, callback)**
 Used to update a Shopify object. If the callback returns `null`, the update was unsuccessful, otherwise the updated object's JSON is returned. Turn on `verbose` logging to see error details if issues arise.
 ```javascript
 shopifapi.put('products', 12345, { tags: 'blue' }, function(updatedProduct) {
 	console.log('I just tried to set the tags for product 12345 to "blue"');
 	console.log(updatedProduct);
 });
-```  
-  
+```
+
 **post(objectName, data, callback)**
 Used to create a new Shopify object. If the callback returns `null`, the creation was unsuccessful, otherwise the updated object's JSON is returned. Turn on `verbose` logging to see error details if issues arise. **NOTE**: this method does not currently support the creation of subobjects.
 ```javascript
@@ -101,7 +101,7 @@ shopifapi.post('products', someProductData, function(newProduct) {
 	console.log('I just tried to create ' + someProductData.title);
 	console.log(newProduct);
 });
-```  
-  
-**queue()**  
+```
+
+**queue()**
 The number of API calls enqueued. Useful for when you've hit the Shopify API call limit and the `burst-queue` is waiting until it can continue.
