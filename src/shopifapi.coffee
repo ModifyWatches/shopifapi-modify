@@ -2,6 +2,7 @@ Queue = require 'burst-queue'
 async = require 'async'
 req = require 'request'
 Log = require './log'
+Sleep = require 'sleep'
 
 class Shopifapi
 
@@ -112,6 +113,8 @@ class Shopifapi
           if obj of result then data = result[obj] else data = result
         callback data if callback?
     )
+    # sleep for one second after every request to prevent hitting limits
+    Sleep.sleep 1
 
   put: (obj, id, data, callback) ->
     put = "#{_url}/admin/#{obj}/#{id}.json"
