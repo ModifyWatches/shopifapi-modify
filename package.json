@@ -1,6 +1,6 @@
 {
   "name": "shopifapi-modify",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "a thin wrapper for the shopify api, forked from shopifapi",
   "main": "index.js",
   "scripts": {

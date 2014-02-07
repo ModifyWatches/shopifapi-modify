@@ -103,5 +103,8 @@ shopifapi.post('products', someProductData, function(newProduct) {
 });
 ```
 
+**delete(objectName, id, data, callback)**
+Delete Shopify object.
+
 **queue()**
 The number of API calls enqueued. Useful for when you've hit the Shopify API call limit and the `burst-queue` is waiting until it can continue.

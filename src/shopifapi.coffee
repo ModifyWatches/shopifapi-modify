@@ -126,9 +126,9 @@ class Shopifapi
     options = _buildOptions(post, 'POST', data)
     @makeRequest obj, post, options, callback
 
-  delete: (obj, id, data, callback) ->
+  delete: (obj, id, callback) ->
     del = "#{_url}/admin/#{obj}/#{id}.json"
-    options = _buildOptions(del, 'DELETE', data)
+    options = _buildOptions del, 'DELETE'
     @makeRequest obj, del, options, callback
 
   queue: ->
