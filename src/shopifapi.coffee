@@ -114,7 +114,7 @@ class Shopifapi
         callback data if callback?
     )
     # sleep for one second after every request to prevent hitting limits
-    Sleep.sleep 0.5
+    Sleep.usleep 500000
 
   put: (obj, id, data, callback) ->
     put = "#{_url}/admin/#{obj}/#{id}.json"
