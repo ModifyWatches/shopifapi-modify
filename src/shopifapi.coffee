@@ -114,7 +114,7 @@ class Shopifapi
         callback data if callback?
     )
     # sleep for one second after every request to prevent hitting limits
-    Sleep.sleep 1
+    Sleep.sleep 0.5
 
   put: (obj, id, data, callback) ->
     put = "#{_url}/admin/#{obj}/#{id}.json"
@@ -125,6 +125,11 @@ class Shopifapi
     post = "#{_url}/admin/#{obj}.json"
     options = _buildOptions(post, 'POST', data)
     @makeRequest obj, post, options, callback
+
+  delete: (obj, id, data, callback) ->
+    del = "#{_url}/admin/#{obj}/#{id}.json"
+    options = _buildOptions(del, 'DELETE', data)
+    @makeRequest obj, del, options, callback
 
   queue: ->
     _queue.enqueued()
