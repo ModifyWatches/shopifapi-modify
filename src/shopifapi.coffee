@@ -47,6 +47,7 @@ class Shopifapi
 
     countComplete = (err, response, result) ->
       pages = Math.ceil(result.count / 250)
+      if isNaN pages then pages = 1
       objects = []
 
       qtask = (task, callback) ->
