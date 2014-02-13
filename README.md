@@ -103,7 +103,7 @@ shopifapi.post('products', someProductData, function(newProduct) {
 });
 ```
 
-**delete(objectName, id, data, callback)**
+**delete(objectName, id, callback)**
 Delete Shopify object.
 
 **queue()**
